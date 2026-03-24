@@ -1,0 +1,248 @@
+"""
+mock_data.py — Cerevyn Solutions · EduAI Monitor
+Ultra-polished, production-ready mock data for the live dashboard.
+"""
+
+from datetime import datetime, timedelta, timezone
+from typing import Dict, Any, List
+
+# ─── Workflows (8 pipelines) ──────────────────────────────────────────────────
+WORKFLOWS: Dict[str, Dict[str, Any]] = {
+    "wf-001": {
+        "id": "wf-001",
+        "name": "Student Quiz Personalization",
+        "status": "Running",
+        "type": "LLM Inference",
+        "model": "gpt-4o-mini",
+        "provider": "OpenAI",
+        "last_run": (datetime.now(timezone.utc) - timedelta(seconds=34)).isoformat().replace("+00:00", "Z"),
+        "success_rate": 98.7,
+        "calls_today": 18456,
+        "avg_latency_ms": 980,
+        "error_rate": 0.8,
+        "daily_cost_usd": 12.45,
+        "trend": "up",
+    },
+    "wf-002": {
+        "id": "wf-002",
+        "name": "Adaptive Learning Path Generator",
+        "status": "Running",
+        "type": "RAG + LLM",
+        "model": "claude-3.5-sonnet",
+        "provider": "Anthropic",
+        "last_run": (datetime.now(timezone.utc) - timedelta(seconds=12)).isoformat().replace("+00:00", "Z"),
+        "success_rate": 97.2,
+        "calls_today": 9734,
+        "avg_latency_ms": 2140,
+        "error_rate": 1.5,
+        "daily_cost_usd": 28.90,
+        "trend": "up",
+    },
+    "wf-003": {
+        "id": "wf-003",
+        "name": "Student Performance & Dropout Predictor",
+        "status": "Paused",
+        "type": "ML Model",
+        "model": "XGBoost v2.3 + LSTM",
+        "provider": "Custom",
+        "last_run": (datetime.now(timezone.utc) - timedelta(hours=4, minutes=18)).isoformat().replace("+00:00", "Z"),
+        "success_rate": 94.1,
+        "calls_today": 2156,
+        "avg_latency_ms": 720,
+        "error_rate": 3.9,
+        "daily_cost_usd": 0.00,
+        "trend": "down",
+    },
+    "wf-004": {
+        "id": "wf-004",
+        "name": "Automated Essay & Answer Grader",
+        "status": "Degraded",
+        "type": "LLM Fine-tuned",
+        "model": "gpt-4o",
+        "provider": "OpenAI",
+        "last_run": (datetime.now(timezone.utc) - timedelta(minutes=19)).isoformat().replace("+00:00", "Z"),
+        "success_rate": 85.6,
+        "calls_today": 4128,
+        "avg_latency_ms": 6840,
+        "error_rate": 11.4,
+        "daily_cost_usd": 47.20,
+        "trend": "down",
+    },
+    "wf-005": {
+        "id": "wf-005",
+        "name": "Curriculum & Resource Recommender",
+        "status": "Running",
+        "type": "Embedding Search + Re-ranking",
+        "model": "text-embedding-3-large",
+        "provider": "OpenAI",
+        "last_run": (datetime.now(timezone.utc) - timedelta(seconds=8)).isoformat().replace("+00:00", "Z"),
+        "success_rate": 99.4,
+        "calls_today": 34127,
+        "avg_latency_ms": 380,
+        "error_rate": 0.3,
+        "daily_cost_usd": 4.80,
+        "trend": "up",
+    },
+    "wf-006": {
+        "id": "wf-006",
+        "name": "Real-time Student Engagement Analyzer",
+        "status": "Running",
+        "type": "Vision + LLM",
+        "model": "gemini-1.5-flash",
+        "provider": "Google",
+        "last_run": (datetime.now(timezone.utc) - timedelta(seconds=47)).isoformat().replace("+00:00", "Z"),
+        "success_rate": 96.9,
+        "calls_today": 6842,
+        "avg_latency_ms": 2890,
+        "error_rate": 2.1,
+        "daily_cost_usd": 9.15,
+        "trend": "flat",
+    },
+    "wf-007": {
+        "id": "wf-007",
+        "name": "Voice-to-Text Lesson Transcriber",
+        "status": "Running",
+        "type": "Speech + LLM",
+        "model": "whisper-large-v3",
+        "provider": "OpenAI",
+        "last_run": (datetime.now(timezone.utc) - timedelta(minutes=2, seconds=14)).isoformat().replace("+00:00", "Z"),
+        "success_rate": 98.1,
+        "calls_today": 1243,
+        "avg_latency_ms": 1650,
+        "error_rate": 1.3,
+        "daily_cost_usd": 6.70,
+        "trend": "up",
+    },
+    "wf-008": {
+        "id": "wf-008",
+        "name": "Parent Progress Report Generator",
+        "status": "Warning",
+        "type": "LLM Inference",
+        "model": "claude-3-haiku",
+        "provider": "Anthropic",
+        "last_run": (datetime.now(timezone.utc) - timedelta(minutes=41)).isoformat().replace("+00:00", "Z"),
+        "success_rate": 91.3,
+        "calls_today": 892,
+        "avg_latency_ms": 4320,
+        "error_rate": 5.7,
+        "daily_cost_usd": 11.25,
+        "trend": "down",
+    },
+}
+
+# ─── KPI Metrics ──────────────────────────────────────────────────────────────
+METRICS: Dict[str, Any] = {
+    "active_sessions": 1874,
+    "total_students_online": 12456,
+    "overall_success_rate": 96.3,
+    "avg_system_latency_ms": 1240,
+    "error_rate_percent": 2.4,
+    "daily_inference_calls": 87423,
+    "gpu_utilization_percent": 84,
+    "cache_hit_ratio": 0.91,
+    "uptime_percent": 99.97,
+    "estimated_daily_savings_usd": 1842,
+    "students_helped_today": 9321,
+    # Legacy aliases for maximum compatibility
+    "success_rate": 96.3,
+    "avg_latency_ms": 1240,
+    "error_count": 3,
+}
+
+# ─── Active Alerts ────────────────────────────────────────────────────────────
+ALERTS: List[Dict[str, Any]] = [
+    {
+        "id": "alert-001",
+        "severity": "Critical",
+        "title": "wf-004 High Latency",
+        "message": "Essay grader latency >6s for last 40 minutes",
+        "timestamp": (datetime.now(timezone.utc) - timedelta(minutes=12)).isoformat().replace("+00:00", "Z"),
+        "workflow_id": "wf-004",
+    },
+    {
+        "id": "alert-002",
+        "severity": "Warning",
+        "title": "Rate Limit Approaching",
+        "message": "OpenAI tier-1 limit at 87% for gpt-4o",
+        "timestamp": (datetime.now(timezone.utc) - timedelta(minutes=27)).isoformat().replace("+00:00", "Z"),
+        "workflow_id": "wf-001",
+    },
+    {
+        "id": "alert-003",
+        "severity": "Info",
+        "title": "Model Cold Start Detected",
+        "message": "wf-003 predictor was paused for scheduled maintenance",
+        "timestamp": (datetime.now(timezone.utc) - timedelta(hours=3)).isoformat().replace("+00:00", "Z"),
+        "workflow_id": "wf-003",
+    },
+]
+
+# ─── System Resources ─────────────────────────────────────────────────────────
+RESOURCES: Dict[str, Any] = {
+    "gpu_0": {"name": "NVIDIA A100-40GB", "utilization": 84, "memory_used_gb": 28, "memory_total_gb": 40},
+    "gpu_1": {"name": "NVIDIA A100-40GB", "utilization": 67, "memory_used_gb": 19, "memory_total_gb": 40},
+    "cpu": {"utilization": 42, "cores_active": 28},
+    "memory": {"used_gb": 124, "total_gb": 256},
+    "disk": {"used_percent": 61},
+}
+
+# ─── Log Templates (used by simulator) ───────────────────────────────────────
+LOG_TEMPLATES: List[str] = [
+    "[INFO]  wf-001 · Quiz variant B selected for student S-78421 · A/B lift +18%",
+    "[INFO]  wf-005 · Embedding search resolved · 12 docs · score=0.947 · cache_hit=True",
+    "[WARN]  wf-004 · Latency spike detected (7.2s) · prompt length 18.4k tokens",
+    "[INFO]  wf-002 · RAG pipeline completed · 14 chunks from curriculum_v4.pdf",
+    "[ERROR] wf-004 · OpenAI rate limit hit · falling back to claude-3-haiku",
+    "[INFO]  wf-006 · Engagement score calculated: 0.92 (very high)",
+    "[INFO]  wf-007 · Voice transcript completed for lesson #L-3921 · accuracy=98.3%",
+    "[WARN]  wf-008 · Token budget exceeded · parent report delayed",
+    "[INFO]  wf-005 · Vector cache warmed · 87 new embeddings added",
+    "[DEBUG] wf-002 · Context window at 81% · applied compression",
+    "[INFO]  wf-001 · Batch inference complete · n=32 students",
+    "[WARN]  gateway · OpenAI tier-1 limit at 87% · throttling imminent",
+    "[ERROR] wf-004 · Response timeout after 7.2s · retrying (1/3)",
+    "[INFO]  system · Prometheus scrape successful · 312 metrics collected",
+    "[INFO]  wf-006 · New session registered · session_id=a3f9c12e",
+    "[INFO]  wf-003 · Dropout risk score computed for 142 students",
+    "[WARN]  wf-008 · High error rate 5.7% · queue backlog detected",
+    "[INFO]  wf-002 · Adaptive path updated for cohort C-112",
+    "[DEBUG] wf-005 · Re-ranking completed · top-k=8 · 112ms",
+    "[INFO]  system · Cache eviction triggered · freed 2.1 GB",
+    "[INFO]  wf-001 · Personalized quiz delivered to 47 students",
+    "[WARN]  wf-004 · CUDA memory pressure · model scaled down",
+    "[INFO]  wf-007 · Whisper transcription accuracy improved to 99.1%",
+]
+
+# ─── Initial Logs (for immediate display on page load) ───────────────────────
+INITIAL_LOGS: List[Dict[str, Any]] = [
+    {
+        "id": "log-001",
+        "message": "wf-005 · Embedding search resolved · 12 docs · score=0.947 · cache_hit=True",
+        "ts": (datetime.now(timezone.utc) - timedelta(seconds=8)).isoformat().replace("+00:00", "Z"),
+        "level": "INFO",
+    },
+    {
+        "id": "log-002",
+        "message": "wf-004 · Latency spike detected (7.2s) · prompt length 18.4k tokens",
+        "ts": (datetime.now(timezone.utc) - timedelta(seconds=19)).isoformat().replace("+00:00", "Z"),
+        "level": "WARN",
+    },
+    {
+        "id": "log-003",
+        "message": "wf-001 · Quiz variant B selected for student S-78421 · A/B lift +18%",
+        "ts": (datetime.now(timezone.utc) - timedelta(seconds=34)).isoformat().replace("+00:00", "Z"),
+        "level": "INFO",
+    },
+    {
+        "id": "log-004",
+        "message": "wf-006 · Engagement score calculated: 0.92 (very high)",
+        "ts": (datetime.now(timezone.utc) - timedelta(minutes=1, seconds=12)).isoformat().replace("+00:00", "Z"),
+        "level": "INFO",
+    },
+    {
+        "id": "log-005",
+        "message": "system · Prometheus scrape successful · 312 metrics collected",
+        "ts": (datetime.now(timezone.utc) - timedelta(minutes=2)).isoformat().replace("+00:00", "Z"),
+        "level": "INFO",
+    },
+]
